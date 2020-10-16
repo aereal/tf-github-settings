@@ -33,11 +33,11 @@ data "github_repository" "qron" {
 
 resource "github_actions_secret" "npm_token" {
   for_each        = toset([
-    data.github_repository.cdk-dynamodb-expression.full_name,
-    data.github_repository.aws-cdk-apigw-documentation.full_name,
-    data.github_repository.react-type-safe-render.full_name,
-    data.github_repository.eslint-config.full_name,
-    data.github_repository.qron.full_name,
+    data.github_repository.cdk-dynamodb-expression.name,
+    data.github_repository.aws-cdk-apigw-documentation.name,
+    data.github_repository.react-type-safe-render.name,
+    data.github_repository.eslint-config.name,
+    data.github_repository.qron.name,
   ])
   repository      = each.value
   secret_name     = "NPM_TOKEN"
